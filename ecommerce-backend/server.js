@@ -22,8 +22,10 @@ app.use(bodyParser.json());
 app.use("/", mainRouter);
 
 
+
 // Database Connection
-const dbUri = `mongodb+srv://rutagengwadiane33:4yYS8RRV6UZYUROB@cluster0.vqier.mongodb.net/${db_name}`;
+
+const dbUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vqier.mongodb.net/${process.env.DB_NAME}`;
 mongoose.set("strictQuery", false);
 mongoose
   .connect(dbUri)
